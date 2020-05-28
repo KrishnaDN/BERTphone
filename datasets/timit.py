@@ -13,6 +13,7 @@ from data_parser import phoneme_ids,read_pron_dict
 import json
 
 
+
 class TIMIT(object):
     def __init__(self,config):
         super(TIMIT, self).__init__()
@@ -59,6 +60,7 @@ class TIMIT(object):
                     data_frame = {}
                     data_frame['audio_filepath'] = audio_filepath
                     data_frame['phn_seq'] = ' '.join([str(phn_item) for phn_item in phn_seq])
+                    data_frame['phn_seq_len']=len(phn_seq)
                     with open(json_write_filepath, 'w') as fid:
                         json.dump(data_frame, fid,indent=4)
         
@@ -80,6 +82,7 @@ class TIMIT(object):
                     data_frame = {}
                     data_frame['audio_filepath'] = audio_filepath
                     data_frame['phn_seq'] = ' '.join([str(phn_item) for phn_item in phn_seq])
+                    data_frame['phn_seq_len']=len(phn_seq)
                     with open(json_write_filepath, 'w') as fid:
                         json.dump(data_frame, fid,indent=4)
         
