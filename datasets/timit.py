@@ -58,9 +58,9 @@ class TIMIT(object):
                     json_write_filepath =store_folder+'/'+sub_folder.split('/')[-2]+'_'+spk_folder.split('/')[-2]+'_'+audio_filepath.split('/')[-1][:-4]+'.json'
                     data_frame = {}
                     data_frame['audio_filepath'] = audio_filepath
-                    data_frame['phn_seq'] = phn_seq
+                    data_frame['phn_seq'] = ' '.join([str(phn_item) for phn_item in phn_seq])
                     with open(json_write_filepath, 'w') as fid:
-                        json.dump(data_frame, fid,indent=2)
+                        json.dump(data_frame, fid,indent=4)
         
     def process_data_test(self):
         dictionary,phn_mapping = self.read_dictionary()
@@ -79,9 +79,9 @@ class TIMIT(object):
                     json_write_filepath =store_folder+'/'+sub_folder.split('/')[-2]+'_'+spk_folder.split('/')[-2]+'_'+audio_filepath.split('/')[-1][:-4]+'.json'
                     data_frame = {}
                     data_frame['audio_filepath'] = audio_filepath
-                    data_frame['phn_seq'] = phn_seq
+                    data_frame['phn_seq'] = ' '.join([str(phn_item) for phn_item in phn_seq])
                     with open(json_write_filepath, 'w') as fid:
-                        json.dump(data_frame, fid,indent=2)
+                        json.dump(data_frame, fid,indent=4)
         
         
         
