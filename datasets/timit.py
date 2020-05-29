@@ -87,8 +87,6 @@ class TIMIT(object):
                         json.dump(data_frame, fid,indent=4)
         
         
-        
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Configuration for data preparation")
@@ -98,9 +96,7 @@ if __name__ == '__main__':
     parser.add_argument("--cmu_symbols", default="/home/krishna/Krishna/BERTphone/cmudict.symbols", type=str,help='Phoneme list')
 
     config = parser.parse_args()
-
     timit = TIMIT(config)
     timit.process_data_train()
     timit.process_data_test()
     
-
