@@ -15,7 +15,7 @@ import torch.nn.functional as F
 from modules.transformer import TransformerEncoder
 
 class BERTphone(nn.Module):
-    def __init__(self,input_feat_dim, num_phones=86,out_feat_dim=13,num_heads = 13, layers = 12):
+    def __init__(self,input_feat_dim, num_phones=86,num_heads = 13, layers = 12):
         super(BERTphone, self).__init__()
         self.input_feat_dim = 39
         self.num_heads = num_heads
@@ -27,7 +27,7 @@ class BERTphone(nn.Module):
         self.embed_dropout = 0.1
         self.attn_mask = False
         self.num_phones=num_phones
-        self.out_feature_dim =out_feat_dim
+        self.out_feature_dim =input_feat_dim
         
         #self.lstm = nn.LSTM(256,256,dropout=0.2,batch_first=True)
         self.transformer = self.get_transformer()        
@@ -59,7 +59,7 @@ class BERTphone(nn.Module):
         projection_ctc = F.log_softmax(self.proj_layer_ctc(transformer_out),dim=1)
         projection_rec = self.proj_layer_rec(transformer_out)
         ctc_logits = projection_ctc.permute(2,0,1)
-        return ctc_logits,projection_rec
+        return ctc_logits,projection_rec,transformer_out
         
 
 
