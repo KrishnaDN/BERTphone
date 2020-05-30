@@ -11,7 +11,6 @@ Created on Fri May 29 09:37:04 2020
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 import torch.nn.functional as F
-
 from modules.transformer import TransformerEncoder
 
 class BERTphone(nn.Module):

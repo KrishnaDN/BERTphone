@@ -36,9 +36,6 @@ parser.add_argument('-use_gpu', action="store_true", default=True)
 parser.add_argument('-num_epochs', action="store_true", default=100)
 args = parser.parse_args()
 
-
-
-
 ### Data related
 dataset_train = SpeechDataGenerator(manifest=args.training_filepath)
 dataloader_train = DataLoader(dataset_train, batch_size=args.batch_size,shuffle=True,collate_fn=speech_collate) 
@@ -53,8 +50,6 @@ model = BERTphone(args.input_feat_dim,args.num_phones, args.num_heads, args.num_
 optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay=0.0, betas=(0.9, 0.98), eps=1e-9)
 ctc_loss_function = nn.CTCLoss(blank=85,zero_infinity=True, reduction='mean')
 rec_loss_function = nn.L1Loss(reduction='mean')
-
-
 
 
 
