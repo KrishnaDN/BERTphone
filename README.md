@@ -46,6 +46,8 @@ python training_BERTphone.py --training_filepath meta/training.txt --testing_fil
                              --input_feat_dim 39 --num_phones 86 --num_heads 13 --num_layers 12 --lamda_val 0.1
                              --batch_size 32 --use_gpu True --num_epochs 100
 ```
+WORK IN PROGRESS
+
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 For any queries contact : krishnadn94@gmail.com
